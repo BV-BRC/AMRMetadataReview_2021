@@ -33,11 +33,10 @@ This repository is split up with the following organization:
 This script downloads the fasta files from the PATRIC FTP and builds models.  Note that these models are very large and require lots of RAM and compute time to run appropriately.  
 
 ```bash
-run.sh [PATH/TO/REPO] [output_dir] [threads]
+run.sh [output_dir] [threads]
 ```
 
 The script has two arguments:
-- PATH/TO/REPO : location of the repo on the machine.  Example: \~/AMRMetadataReview_2021/
 - output_dir : output directory to put the results and fasta files.  Example \~/AMRModels_out/
 - threads : number of threads to run with.  Don't choose a number higher than the number of cores on your machine!  Example: 128
 
