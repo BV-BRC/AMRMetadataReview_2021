@@ -1,0 +1,3 @@
+[submodule "GenomicModelCreator"]
+	path = GenomicModelCreator
+	url = https://github.com/Tinyman392/GenomicModelCreator.git
