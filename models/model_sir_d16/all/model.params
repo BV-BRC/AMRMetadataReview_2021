@@ -1,0 +1,1 @@
+{'num_class': 3, 'silent': 1, 'nthread': 128, 'eta': 0.0625, 'objective': 'multi:softmax', 'max_depth': 16}
