@@ -40,7 +40,7 @@ The script has two arguments:
 - output_dir : output directory to put the results and fasta files.  Example \~/AMRModels_out/
 - threads : number of threads to run with.  Don't choose a number higher than the number of cores on your machine!  Example: 128
 
-The download of the 59200 individual fasta files can be very time consuming based on the speed of your internet.  If a fasta file exists in the [output_dir]/fasta/ directory, the script will not redownload that file.  It is normal for the first initial download to take over 4 hours to run.  
+The download of the 59200 individual fasta files can be very time consuming based on the speed of your internet.  If a fasta file exists in the *[output_dir]/fasta/* directory, the script will not redownload that file.  It is normal for the first initial download to take over 4 hours to run.  
 
 For reference with respect to compute requirements: these models were built on a machine that has 144 total logical processors and 1 TB of RAM.  These models still required multiple *days* of training using this server.  
 
