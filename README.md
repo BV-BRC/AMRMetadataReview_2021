@@ -44,6 +44,10 @@ The download of the 59200 individual fasta files can be very time consuming base
 
 For reference with respect to compute requirements: these models were built on a machine that has 144 total logical processors and 1 TB of RAM.  These models still required multiple *days* of training using this server.  
 
+# GenomicModelCreator Directory
+
+This directory contains the scripts needed to build AMR models for this repository.  Please see the README in the *GenomicModelCreator* directory for more information about this.  
+
 # Tabular Directory
 
 This directory contains all the raw tabular files that were used to generate the models.  It contains 3 files:
