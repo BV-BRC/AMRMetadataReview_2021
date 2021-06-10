@@ -20,7 +20,15 @@ git submodule update
 
 After doing this the repo is set up.  
 
-# Repository Setup
+# Requirements
+
+There are some additional python libraries that are needed to run the *buildModel.py* script (installed version are in parenthesis):
+- [XGBoost](https://xgboost.readthedocs.io/en/latest/) (v 0.82)
+- [Numpy](https://numpy.org) (1.16.5)
+- [SciPy](https://www.scipy.org) (1.2.1)
+- [SciKit-Learn](https://scikit-learn.org/stable/) (0.20.3)
+
+# Repository Structure
 
 This repository is split up with the following organization:
 - Genomic Model Creator : This is an external repository, if you didn't initialize and update the submodules, this directory is empty.  Once the submodules are set up properly, it'll be populated with the GenomicModelCreator python scripts.
