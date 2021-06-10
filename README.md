@@ -22,11 +22,15 @@ After doing this the repo is set up.
 
 # Requirements
 
+Although this specific repository doesn't have any specific requirements, the GenomicModelCreator which is used to train the models does have some requirements and tools that are needed for it to run.  
+
 There are some additional python libraries that are needed to run the *buildModel.py* script (installed version are in parenthesis):
 - [XGBoost](https://xgboost.readthedocs.io/en/latest/) (v 0.82)
 - [Numpy](https://numpy.org) (1.16.5)
 - [SciPy](https://www.scipy.org) (1.2.1)
 - [SciKit-Learn](https://scikit-learn.org/stable/) (0.20.3)
+
+On top of this, [KMC](http://sun.aei.polsl.pl/REFRESH/index.php?page=projects&project=kmc&subpage=about) is also needed to run the scripts.  Specifically, *kmc* and *kmc_dump* must both be in *PATH*.
 
 # Repository Structure
 
