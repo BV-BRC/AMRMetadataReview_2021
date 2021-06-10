@@ -55,5 +55,23 @@ for i in $(cat $OUTDIR/gids.lst); do
 	fi
 done
 
-echo python $REPDIR/GenomicModelCreator/buildModel.py
+###
+# Train models
+###
+
+# Train SIR model
+#   depth 16
+#   kmer-size = 7
+#   classification
+#   S vs R (no I)
+#   compute AMR classification stats
+#   weighting by class
+python $REPDIR/GenomicModelCreator/buildModel.py -f $OUTDIR/fasta/ -t $REPDIR/tabular/amr.sir.filt.tab -o $OUTDIR/model_sir/ -T $OUTDIR/temp -n $THREAD -d 16 -k 7 -c True -j True -S AMRcls -w True 
+# Train MIC model
+#   depth 16
+#   kmer-size = 7
+#   compute AMR regression stats
+python $REPDIR/GenomicModelCreator/buildModel.py -f $OUTDIR/fasta/ -t $REPDIR/tabular/amr.mic.filt.tab -o $OUTDIR/model_mic/ -T $OUTDIR/temp -n $THREAD -d 16 -k 7 -S AMRreg 
+
+
 
