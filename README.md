@@ -37,6 +37,7 @@ On top of this, [KMC](http://sun.aei.polsl.pl/REFRESH/index.php?page=projects&pr
 This repository is split up with the following organization:
 - Genomic Model Creator : This is an external repository, if you didn't initialize and update the submodules, this directory is empty.  Once the submodules are set up properly, it'll be populated with the GenomicModelCreator python scripts.
 - tabular : This directory contains all the tabular files that are used to generate the model
+- models : This directory contains the two AMR models generated for the paper
 - README.md : This file
 - run.sh : Script used to run everything
 
@@ -67,4 +68,20 @@ This directory contains all the raw tabular files that were used to generate the
 - amr.mic.filt.tab : This is the file used to train the MIC model.  It is filtered down to just contain all species-antibiotic combinations that have more than 450 samples.  It contains 3 columns: [genome_id, antibiotic:MIC, MIC_value].
 - amr.sir.filt.tab : This is the file used to train the SIR model.  It is filtered down to contain all species-antibiotic combinations that have more than 50 samples in S and R.  The file contains 3 columns: [genome_id, antibiotic:breakpoint_def, SIR].
 
+# Models Directory
 
+This directory contains 2 folders, each with a similar structure:
+- model_mic_d16 : MIC model
+- model_sir_d16 : SIR model
+
+Each model directory structure consists of the following:
+- all : this directory contains the individual folds that were trained.  For this paper, the first 5 folds of a 10-fold CV were trained.  Additionally, it contains the labels and predictions for each fold and training history for each fold.  Additionally, statistical tabular files exist in here as well.
+- model.attrOrder : order of features for the feature vector
+- model.genomes.list : list of genome IDs used to train the model
+- model.labels.map : mapping of labels to numeric value (used for non-AMR models)
+- model.params : parameter hash used to train the model
+- model.stats.* : sets of files generated to compute stats by species
+- temp.txt : temporary output used during debugging
+- weights.list : list of weights in order that were used
+
+Note that the randomization seed isn't set in GenomicModelCreator, so the model outputs will not match the output of shown here 100%, they should be within the confidence intervals though for the statistic files in the *all* directories.
