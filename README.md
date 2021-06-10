@@ -46,7 +46,7 @@ This repository is split up with the following organization:
 This script downloads the fasta files from the PATRIC FTP and builds models.  Note that these models are very large and require lots of RAM and compute time to run appropriately.  
 
 ```bash
-run.sh [output_dir] [threads]
+bash PATH/TO/run.sh [output_dir] [threads]
 ```
 
 The script has two arguments:
