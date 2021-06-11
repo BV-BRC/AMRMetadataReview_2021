@@ -32,6 +32,8 @@ There are some additional python libraries that are needed to run the *buildMode
 
 On top of this, [KMC](http://sun.aei.polsl.pl/REFRESH/index.php?page=projects&project=kmc&subpage=about) is also needed to run the scripts.  Specifically, *kmc* and *kmc_dump* must both be in *PATH*.
 
+Note that the *run.sh* script does require quite a bit of resources to run.  For reference, our machine is has 144 logical cores and 1 TB of RAM.  During testing, utilizing 128 cores the training portion of the script took 2-3 days total to run while using upwards of 128 GB of RAM on the machine.  
+
 # Repository Structure
 
 This repository is split up with the following organization:
@@ -55,7 +57,7 @@ The script has two arguments:
 
 The download of the 59200 individual fasta files can be very time consuming based on the speed of your internet.  If a fasta file exists in the *[output_dir]/fasta/* directory, the script will not redownload that file.  It is normal for the first initial download to take over 4 hours to run.  
 
-For reference with respect to compute requirements: these models were built on a machine that has 144 total logical processors and 1 TB of RAM.  These models still required multiple *days* of training using this server.  
+For reference with respect to compute requirements: these models were built on a machine that has 144 total logical processors and 1 TB of RAM.  These models still required multiple *days* of training using this server while utilizing upwards of 128 GB of RAM.
 
 # GenomicModelCreator Directory
 
