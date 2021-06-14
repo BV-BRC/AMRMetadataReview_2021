@@ -32,7 +32,7 @@ There are some additional python libraries that are needed to run the *buildMode
 
 On top of this, [KMC](http://sun.aei.polsl.pl/REFRESH/index.php?page=projects&project=kmc&subpage=about) is also needed to run the scripts.  Specifically, *kmc* and *kmc_dump* must both be in *PATH*.
 
-Note that the *run.sh* script does require quite a bit of resources to run.  For reference, our machine is has 144 logical cores and 1 TB of RAM.  During testing, utilizing 128 cores the training portion of the script took 2-3 days total to run while using upwards of 128 GB of RAM on the machine.  
+Note that the *run.sh* script does require quite a bit of resources to run.  For reference, our machine is has 144 logical cores and 1 TB of RAM.  During testing, utilizing 128 cores the training portion of the script took 2-3 days total to run while using upwards of 128 GB of RAM on the machine.  Besides this, the script requires a total of 220 GB of fasta files to be downloaded used to train with.  An additional 1-2 GB of store is used during training.  
 
 # Repository Structure
 
@@ -55,9 +55,16 @@ The script has two arguments:
 - output_dir : output directory to put the results and fasta files.  Example \~/AMRModels_out/
 - threads : number of threads to run with.  Don't choose a number higher than the number of cores on your machine!  Example: 128
 
-The download of the 59200 individual fasta files can be very time consuming based on the speed of your internet.  If a fasta file exists in the *[output_dir]/fasta/* directory, the script will not redownload that file.  It is normal for the first initial download to take over 4 hours to run.  
+The download of the 59200 individual fasta files can be very time consuming based on the speed of your internet.  If a fasta file exists in the *[output_dir]/fasta/* directory, the script will not redownload that file.  It is normal for the first initial download to take over 4 hours to run.  Note that the total download size is 220GB!  
 
 For reference with respect to compute requirements: these models were built on a machine that has 144 total logical processors and 1 TB of RAM.  These models still required multiple *days* of training using this server while utilizing upwards of 128 GB of RAM.
+
+The output directory will contain the following:
+- fasta : directory containing all fasta files that were downloaded from the PATRIC FTP and used to train with.  This should contain 59200 fasta files totaling 220 GB of data.  
+- gids.lst : list of genome IDs used to train with.  This list is also used to download genomes from the PATRIC FTP.  
+- model_mic : MIC model directory.
+- model_sir : SIR model directory.
+- temp : temporary directory used while training.  
 
 # GenomicModelCreator Directory
 
