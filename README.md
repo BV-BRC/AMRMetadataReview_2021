@@ -32,7 +32,10 @@ There are some additional python libraries that are needed to run the *buildMode
 
 On top of this, [KMC](http://sun.aei.polsl.pl/REFRESH/index.php?page=projects&project=kmc&subpage=about) is also needed to run the scripts.  Specifically, *kmc* and *kmc_dump* must both be in *PATH*.
 
-Note that the *run.sh* script does require quite a bit of resources to run.  For reference, our machine is has 144 logical cores and 1 TB of RAM.  During testing, utilizing 128 cores the training portion of the script took 2-3 days total to run while using upwards of 128 GB of RAM on the machine.  Besides this, the script requires a total of 220 GB of fasta files to be downloaded used to train with.  An additional 1-2 GB of store is used during training.  
+Note that the *run.sh* script does require quite a bit of resources to run.  For reference, our machine is has 144 logical cores and 1 TB of RAM.  During testing, utilizing 128 cores the training portion of the script took 2-3 days total to run while using upwards of 128 GB of RAM on the machine.  Besides this, the script requires a total of 220 GB of fasta files to be downloaded used to train with.  An additional 1-2 GB of store is used during training.  In our tests on a machine utilizing 128 of 144 cores and 1 TB of RAM, the total runtime for the script was about 36 hours:
+- 5 hours downloading files
+- 19 hours to train SIR model
+- 12 hours to train MIC model
 
 # Repository Structure
 
@@ -42,10 +45,11 @@ This repository is split up with the following organization:
 - models : This directory contains the two AMR models generated for the paper
 - README.md : This file
 - run.sh : Script used to run everything
+- getAccBySpc.py : Script used to compute accuracies by species.
 
 # run.sh
 
-This script downloads the fasta files from the PATRIC FTP and builds models.  Note that these models are very large and require lots of RAM and compute time to run appropriately.  
+This script downloads the fasta files and [*genome_lineage*](ftp://ftp.patricbrc.org/RELEASE_NOTES/genome_lineage) file from the PATRIC FTP and builds the cross-validated SIR and MIC models (the first 5 of 10 total folds are run).  Afterwards, it computes model stats for each model using the *getAccBySpc.py* script.  Note that these models require lots of RAM and compute time to run appropriately.  
 
 ```bash
 bash PATH/TO/run.sh [output_dir] [threads]
