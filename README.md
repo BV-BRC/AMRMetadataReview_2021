@@ -18,7 +18,7 @@ git submodule init
 git submodule update
 ```
 
-After doing this the repo is set up.  
+Once this is done, the repo is set up.
 
 # Requirements
 
