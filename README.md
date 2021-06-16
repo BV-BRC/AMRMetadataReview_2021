@@ -57,14 +57,17 @@ The script has two arguments:
 
 The download of the 59200 individual fasta files can be very time consuming based on the speed of your internet.  If a fasta file exists in the *[output_dir]/fasta/* directory, the script will not redownload that file.  It is normal for the first initial download to take over 4 hours to run.  Note that the total download size is 220GB!  
 
-For reference with respect to compute requirements: these models were built on a machine that has 144 total logical processors and 1 TB of RAM.  These models still required multiple *days* of training using this server while utilizing upwards of 128 GB of RAM.
-
 The output directory will contain the following:
 - fasta : directory containing all fasta files that were downloaded from the PATRIC FTP and used to train with.  This should contain 59200 fasta files totaling 220 GB of data.  
 - gids.lst : list of genome IDs used to train with.  This list is also used to download genomes from the PATRIC FTP.  
 - model_mic : MIC model directory.
 - model_sir : SIR model directory.
 - temp : temporary directory used while training.  
+
+For reference with respect to compute requirements: these models were built on a machine that has 144 total logical processors and 1 TB of RAM.  These models still required multiple *days* of training using this server while utilizing upwards of 128 GB of RAM.  In our tests on a machine utilizing 128 of 144 cores and 1 TB of RAM, the total runtime for the script was about 36 hours:
+- 5 hours downloading files
+- 19 hours to train SIR model
+- 12 hours to train MIC model
 
 # GenomicModelCreator Directory
 
